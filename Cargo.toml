@@ -1,0 +1,20 @@
+[package]
+name = "log-plus"
+version = "1.0.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = [""]
+description = "A simple, asynchronous log library"
+
+[features]
+default = ["time"]
+time = ["dep:time"]
+chrono = ["dep:chrono"]
+tokio = ["dep:tokio"]
+
+[dependencies]
+log = "0.4"
+cfg-if = "1.0"
+time = { version = "0.3", optional = true, features = ["formatting", "local-offset"] }
+chrono = { version = "0.4", optional = true, features = ["serde"] }
+tokio = { version = "1.41", optional = true, features = ["rt", "io-std", "io-util"] }
